@@ -22,10 +22,6 @@ public class OrderServiceController {
         try {
             log.trace("Order receive: {}", orderDTO);
             orderService.processOrder(orderDTO);
-        } catch (UnsupportedOperationException e) {
-            return ResponseEntity.internalServerError().body(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             log.error("Unexpected error: " + e.getMessage());
             return ResponseEntity.internalServerError().body(e.getMessage());
