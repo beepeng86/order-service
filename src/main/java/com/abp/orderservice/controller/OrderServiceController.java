@@ -21,7 +21,7 @@ public class OrderServiceController {
     public ResponseEntity placeOrder(@RequestBody OrderDTO orderDTO) {
         try {
             log.trace("Order receive: {}", orderDTO);
-            orderService.processOrder(orderDTO);
+            orderService.placeOrder(orderDTO);
         } catch (Exception e) {
             log.error("Unexpected error: " + e.getMessage());
             return ResponseEntity.internalServerError().body(e.getMessage());
